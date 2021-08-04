@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SimpleCard from './Cards'
 
 class CounterComponent extends Component {
 
@@ -34,12 +35,16 @@ class CounterComponent extends Component {
 
     render() {
         console.log("Render")
+        console.log(this.props)
         return(
             <div>
                 <h3> This is {this.props.componentName} </h3>
+                <SimpleCard subheading="Counter Application" heading="Class Component" 
+                    description="Along with Counter Application this component contains Increment in Parent which will Increment the data from Child to Parent Component"/> <br/>
                 Initial Value : {this.state.initialState} <br/> <br/>
                 <button onClick={this.handleIncrement} > Increment</button> &nbsp;
-                <button onClick={this.handleDecrement} > Decrement</button>
+                <button onClick={this.handleDecrement} > Decrement</button> &nbsp;
+                <button onClick={() => this.props.handleIncrement(5)} > Increment in Parent </button>
             </div>
         )
     }
